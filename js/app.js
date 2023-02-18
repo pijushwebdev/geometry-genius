@@ -1,87 +1,4 @@
 
-const setAreaToResultField = (areaNameId,area) => {
-    const ol = document.getElementById('ordered-lists');
-    const areaN = document.getElementById(areaNameId);
-    const areaName = areaN.innerText;
-    if(area !== undefined){
-    ol.innerHTML += `<li class="list-decimal my-2 list-inside">${areaName}<span id="area-field"> ${area} </span>cm<sup>2</sup>
-    <span><button class="py-1 px-2 bg-blue-1000 rounded-md">convert
-            m<sup>2</sup></button></span></li>`;
-    }
-}
-
-const getAreaFromInput = (side1Id,side2Id,hasFraction,isEllipse) => {
-    const side1 = document.getElementById(side1Id);
-    const side2 = document.getElementById(side2Id);
-    const side1String = side1.value;
-    const side2String = side2.value;
-  
-    side1.value ='';
-    side2.value ='';
-
-    const sideNo1 = parseFloat(side1String);
-    const sideNo2 = parseFloat(side2String);
-    let area;
-    if((sideNo1 > 0 && sideNo2 > 0) && (typeof sideNo1 === 'number' && typeof sideNo2 === 'number')){
-        if(hasFraction){
-            area = 0.5 * sideNo1 * sideNo2;
-            const areaS = area.toFixed(2);
-            const areaFinal = parseFloat(areaS);
-            return areaFinal;
-        }
-        else if(isEllipse){
-            area = 3.1416 * sideNo1 * sideNo2;
-            const areaS = area.toFixed(2);
-            const areaFinal = parseFloat(areaS);
-            return areaFinal;
-        }
-        else{
-            area = sideNo1 * sideNo2;
-            const areaS = area.toFixed(2);
-            const areaFinal = parseFloat(areaS);
-            return areaFinal;
-        }    
-    }else{
-        alert('Invalid input');
-    }
-}
-const toggleInput = (elementId) => {
-    const inputContainer = document.getElementById(elementId);
-    inputContainer.classList.toggle('hidden');
-
-
-}
-
-const getAreaFromElement = (side1Id,side2Id,hasFraction,isEllipse) => {
-    const side1 = document.getElementById(side1Id);
-    const side2 = document.getElementById(side2Id);
-    const side1String = side1.innerText;
-    const side2String = side2.innerText;
-
-    const sideNo1 = parseFloat(side1String);
-    const sideNo2 = parseFloat(side2String);
-    let area;
-
-    if(hasFraction){
-        area = 0.5 * sideNo1 * sideNo2;
-        const areaS = area.toFixed(2);
-        const areaFinal = parseFloat(areaS);
-        return areaFinal;
-    }
-    else if(isEllipse){
-        area = 3.1416 * sideNo1 * sideNo2;
-        const areaS = area.toFixed(2);
-        const areaFinal = parseFloat(areaS);
-        return areaFinal;
-    }
-    else{
-        area = sideNo1 * sideNo2;
-        const areaS = area.toFixed(2);
-        const areaFinal = parseFloat(areaS);
-        return areaFinal;
-    } 
-}
-
 //add click event to the button
 const cards = document.querySelectorAll('.cards');
 cards.forEach((card) => {
@@ -155,4 +72,53 @@ cards.forEach((card) => {
         
 
     })
+    card.addEventListener('mouseover',(event) => {
+        const targetElement = event.target.classList;
+
+        if(targetElement.contains('triangle-card')){
+            setColor('triangle-bg');
+        }
+        if(targetElement.contains('rectangle-card')){
+            setColor('rectangle-bg');
+        }
+        if(targetElement.contains('parallelogram-card')){
+            setColor('parallelogram-bg');
+        }
+        if(targetElement.contains('rhombus-card')){
+            setColor('rhombus-bg');
+        }
+        if(targetElement.contains('pentagon-card')){
+            setColor('pentagon-bg');
+        }
+        if(targetElement.contains('ellipse-card')){
+            setColor('ellipse-bg');
+        }
+    })
+    card.addEventListener('mouseout',(event) => {
+        const targetElement = event.target.classList;
+
+        if(targetElement.contains('triangle-card')){
+            removeColor('triangle-bg');
+        }
+        if(targetElement.contains('rectangle-card')){
+            removeColor('rectangle-bg');
+        }
+        if(targetElement.contains('parallelogram-card')){
+            removeColor('parallelogram-bg');
+        }
+        if(targetElement.contains('rhombus-card')){
+            removeColor('rhombus-bg');
+        }
+        if(targetElement.contains('pentagon-card')){
+            removeColor('pentagon-bg');
+        }
+        if(targetElement.contains('ellipse-card')){
+            removeColor('ellipse-bg');
+        }
+    })
+})
+
+const blogBtn = document.getElementById('blog-btn');
+blogBtn.addEventListener('click',() => {
+    location.href = 'blog.html'
 })

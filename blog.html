@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container mx-auto my-5">
+        <h2 class="text-2xl my-3">Question 1: What is DOM and What is the purpose of DOM?</h2>
+        <p class="text-lg my-3">Answer:  Document Object Model(DOM) is a documents that can create, removes and moderate
+            HTML elements. With this JavaScript interact with Browser more efficiently.
+        To interact with HTML page DOM is more helpful. DOM can  can change the document
+         structure, style, and content.  </p>
+
+         <h2 class="text-2xl my-3">Question 2: How will you select HTML elements using DOM? DOM method name</h2>
+         <p class="text-lg my-3">Answer : At first give a class or id name of the HTML element, then apply Dom method like:
+            document.getElementById('name-of-the-id');
+            DOM method list: 
+             <pre>
+                1.document.getElementById('id-name')
+                2.document.getElementByClassName('class-name')
+                3.document.getElementByTagName('tag-name')
+                4.document.document.querySelector(".myClass") 
+                5.document.querySelector("#myClass")
+                6.document.querySelectorAll(".myClass")
+             </pre>
+         </p>
+
+         <h2 class="text-2xl my-3">Question 3: What is event bubble</h2>
+         <p class="text-lg my-3">Answer: we  find or create a Html element then add a event listener to the founded element. 
+            And when the event is triggered on an HTML element, that event is first 
+            handled by the element itself. and then it traverse up until the root found 
+            that is event bubble </p>
+
+        <h2 class="text-2xl my-3">Question 4: What is a callback function and why will you use it?</h2>
+
+        <p class="text-lg my-3">A callback function passed an argument to another function and execute when need or finished the function or executed by that function at a later time.
+            We will use it when we need to execute asynchronous operations.
+        </p>
+    </div>
+</body>
+</html>
