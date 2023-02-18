@@ -107,12 +107,24 @@ cards.forEach((card) => {
             }
         }
         else if(targetElement.contains('pentagon-btn')){
-            const area = getAreaFromInput('pentagon-side1', 'pentagon-side2', true);
-            setAreaToResultField('pentagon',area);
+            const checkField = document.getElementById('check-pentagon');
+            if(checkField.checked){
+                const area = getAreaFromInput('pentagon-side1', 'pentagon-side2', true);
+                setAreaToResultField('pentagon',area);
+            }else{
+                const area = getAreaFromElement('pentagon-side1-element', 'pentagon-side2-element', true);
+                setAreaToResultField('pentagon',area);
+            }
         }
         else if(targetElement.contains('ellipse-btn')){
-            const area = getAreaFromInput('ellipse-side1', 'ellipse-side2', false);
-            setAreaToResultField('ellipse',area);
+            const checkField = document.getElementById('check-ellipse');
+            if(checkField.checked){
+                const area = getAreaFromInput('ellipse-side1', 'ellipse-side2', false);
+                setAreaToResultField('ellipse',area);
+            }else{
+                const area = getAreaFromElement('ellipse-side1-element', 'ellipse-side2-element', false);
+                setAreaToResultField('ellipse',area);
+            }
         }
 
         //input enabling
