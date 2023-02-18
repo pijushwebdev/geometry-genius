@@ -1,12 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            950: '#1090D81A',
+                            1000: '#1090D8',
+                        },
+                        input: '#F1F1F1',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Geometry Genius</title>
 </head>
+
 <body>
+    <header id="header">
+        <nav class="container mx-auto mt-12 mb-5 rounded-md items-center flex bg-blue-950 justify-between py-4">
+            <div class="logo ml-10">
+                <h1 class="text-4xl font-bold">Interactive </h1>
+                <p class="text-3xl font-medium">Geometry Genius</p>
+            </div>
+            <div class="mr-10">
+                <button class="text-xl font-bold py-2 px-6 bg-blue-1000 rounded-md text-white">Blog</button>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="mb-40">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-12">
+                <div class="cards grid gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-span-9">
+                    <div class="card text-center shadow pb-10">
+                        <div class="my-12">
+                            <img class="max-w-full mx-auto" src="./images/triangle.png" alt="">
+                        </div>
+                        <h4 id="triangle" class="text-2xl font-bold">Triangle</h4>
+                        <p class="my-5">Area (A) = 0.5 &#xd7 b &#xd7 h</p>
+                        <div class="mb-10 mx-8 flex justify-center">
+
+                            <input id="triangle-side1" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="b">
+                            <span>cm</span>
+
+
+                            <input id="triangle-side2" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="h">
+                            <span>cm</span>
+
+                        </div>
+                        <button
+                            class="triangle-btn block w-3/5 mx-auto rounded-md text-white font-bold py-2 bg-blue-1000">Calculate</button>
+                    </div>
+
+
+                    <div class="card text-center shadow pb-10">
+                        <div class="my-12">
+                            <img class="max-w-full mx-auto" src="./images/rectangle.png" alt="">
+                        </div>
+                        <h4 id="rectangle" class="text-2xl font-bold">Rectangle</h4>
+                        <p class="my-5">Area (A) = w &#xd7 l</p>
+                        <div class="mb-10 mx-8  flex justify-center">
+
+                            <input id="rectangle-side1" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="w">
+                            <span>cm</span>
+
+
+                            <input id="rectangle-side2" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="l">
+                            <span>cm</span>
+
+                        </div>
+                        <button class="rectangle-btn block w-3/5 mx-auto text-white font-bold rounded-md py-2 bg-blue-1000">Calculate</button>
+                    </div>
+
+
+                    <div class="card text-center shadow pb-10">
+                        <div class="my-12">
+                            <img class="max-w-full mx-auto" src="./images/parallelogram.png" alt="">
+                        </div>
+                        <h4 id="parallelogram" class="text-2xl font-bold">Parallelogram</h4>
+                        <p class="my-5">Area (A) = b &#xd7 h</p>
+                        <p class="my-10">b=<span id="parallelogram-side1-element">10</span>cm, h=<span id="parallelogram-side2-element">12</span>cm <img class="edit-parallelogram w-4 float-right cursor-pointer mr-20" src="./images/edit.png" alt=""></p>
+                        
+                        <div id="input-parallelogram" class="hidden mb-4">
+                            <div class="mx-8 flex justify-center">
+                                <input id="parallelogram-side1" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="b">
+                                <span>cm</span>
     
+                                <input id="parallelogram-side2" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="h">
+                                <span>cm</span>
+                                <input id="check-parallelogram" class="ml-2" type="checkbox">
+                            </div>
+                        </div>
+                        
+                        <button
+                            class="parallelogram-btn w-3/5 block mx-auto text-white font-bold rounded-md py-2 bg-blue-1000">Calculate</button>
+                    </div>
+
+
+                    <div class="card text-center shadow pb-10">
+                        <div class="my-12">
+                            <img class="max-w-full mx-auto" src="./images/rhombus.png" alt="">
+                        </div>
+                        <h4 id="rhombus" class="text-2xl font-bold">Rhombus</h4>
+                        <p class="my-5">Area (A) = 0.5 &#xd7 d1 &#xd7 d2</p>
+                        <p class="mb-10">d1=<span id="rhombus-side1-element">16</span>cm, d2=<span id="rhombus-side1-element">8</span>cm <img class="edit-rhombus w-4 float-right cursor-pointer mr-20" src="./images/edit.png" alt=""></p>
+                       
+                        <div id="input-rhombus" class="hidden mb-4">
+                            <div class=" mx-8 flex justify-center">
+                                <input id="rhombus-side1" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text"
+                                    placeholder="d1">
+                                <span>cm</span>
+    
+                                <input id="rhombus-side2" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text"
+                                    placeholder="d2">
+                                <span>cm</span>
+                                <input id="check-rhombus" class="ml-2" type="checkbox">
+                            </div>
+                        </div>
+
+                        <button
+                            class="rhombus-btn w-3/5 block mx-auto text-white font-bold rounded-md py-2 bg-blue-1000">Calculate</button>
+                    </div>
+
+
+                    <div class="card text-center shadow pb-10">
+                        <div class="my-12">
+                            <img class="max-w-full mx-auto" src="./images/pentagon.png" alt="">
+                        </div>
+                        <h4 id="pentagon" class="text-2xl font-bold">Pentagon</h4>
+                        <p class="my-5">Area (A) = 0.5 &#xd7 p &#xd7 b</p>
+                        <p class="mb-10">b=<span id="pentagon-side1-element">6</span>cm, b=<span id="pentagon-side1-element">10</span>cm <img class="edit-pentagon w-4 float-right cursor-pointer mr-20" src="./images/edit.png" alt=""></p>
+                        
+                        <div id="input-pentagon" class="hidden mb-4">
+                            <div class="mx-8 flex justify-center">
+                                <input id="pentagon-side1" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="b">
+                                <span>cm</span>
+    
+                                <input id="pentagon-side2" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="h">
+                                <span>cm</span>
+                                <input id="check-pentagon" class="ml-2" type="checkbox">
+                            </div>
+                        </div>
+                        
+                        <button
+                            class="pentagon-btn w-3/5 block mx-auto rounded-md text-white font-bold py-2 bg-blue-1000">Calculate</button>
+                    </div>
+
+
+                    <div class="card text-center shadow pb-10">
+                        <div class="my-12">
+                            <img class="max-w-full mx-auto" src="./images/ellipse.png" alt="">
+                        </div>
+                        <h4 id="ellipse" class="text-2xl font-bold">Ellipse</h4>
+                        <p class="my-5">Area (A) = <span class="text-2xl">&#960</span>ab</p>
+                        <p class="mb-10">a=<span id="ellipse-side1-element">10</span>cm, b=<span id="ellipse-side1-element">4</span>cm <img class="edit-ellipse w-4 float-right cursor-pointer mr-20" src="./images/edit.png" alt=""></p>
+                        
+                        <div id="input-ellipse" class="hidden mb-4">
+                            <div class=" mx-8 flex justify-center">
+                                <input id="ellipse-side1" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="b">
+                                <span>cm</span>
+    
+                                <input id="ellipse-side2" class="w-1/2 px-2 py-1 bg-input rounded-md outline-none" type="text" placeholder="h">
+                                <span>cm</span>
+                                <input id="check-ellipse" class="ml-2" type="checkbox">
+                            </div>
+                        </div>
+                        
+                        <button
+                            class="ellipse-btn w-3/5 block mx-auto rounded-md text-white font-bold py-2 bg-blue-1000">Calculate</button>
+                    </div>
+                </div>
+
+                <div class="results col-span-3 text-center">
+                    <p class="text-xl font-bold underline underline-offset-8">Area Calculation</p>
+
+                    <ol id="ordered-lists" class="mt-3">
+                        <li class="list-decimal list-inside">Triangle <span id="area-field">12 </span>cm<sup>2</sup>
+                            <span><button class="py-1 px-2 bg-blue-1000 rounded-md">convert
+                                    m<sup>2</sup></button></span></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/app.js"></script>
 </body>
+
 </html>
