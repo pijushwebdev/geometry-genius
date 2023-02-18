@@ -3,7 +3,7 @@ const setAreaToResultField = (areaNameId,area) => {
     const areaN = document.getElementById(areaNameId);
     const areaName = areaN.innerText;
     if(area !== undefined){
-    ol.innerHTML += `<li class="list-decimal my-2 list-inside">${areaName}<span id="area-field"> ${area} </span>cm<sup>2</sup>
+    ol.innerHTML += `<li class="list-decimal my-2 list-inside">${areaName}<span id="${areaName}-a"> ${area} </span>cm<sup>2</sup>
     <span><button id="${areaName}" class="py-1 px-2 bg-blue-1000 rounded-md">convert
             m<sup>2</sup></button></span></li>`;
     }

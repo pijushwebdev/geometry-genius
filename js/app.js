@@ -127,22 +127,22 @@ document.getElementById('ordered-lists').addEventListener('click',(event) => {
     const id =event.target.getAttribute('id');
 
     if(id == 'Pentagon'){
-        convertMeter('area-field');
+        convertMeter('Pentagon-a');
     }
     else if(id == 'Triangle'){
-        convertMeter('area-field');
+        convertMeter('Triangle-a');
     }
     else if(id == 'Parallelogram'){
-        convertMeter('area-field');
+        convertMeter('Parallelogram-a');
     }
     else if(id == 'Rhombus'){
-        convertMeter('area-field');
+        convertMeter('Rhombus-a');
     }
     else if(id == 'Ellipse'){
-        convertMeter('area-field');
+        convertMeter('Ellipse-a');
     }
     else if(id == 'Rectangle'){
-        convertMeter('area-field');
+        convertMeter('Rectangle-a');
     }
 
 })
