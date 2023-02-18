@@ -122,3 +122,27 @@ const blogBtn = document.getElementById('blog-btn');
 blogBtn.addEventListener('click',() => {
     location.href = 'blog.html'
 })
+
+document.getElementById('ordered-lists').addEventListener('click',(event) => {
+    const id =event.target.getAttribute('id');
+
+    if(id == 'Pentagon'){
+        convertMeter('area-field');
+    }
+    else if(id == 'Triangle'){
+        convertMeter('area-field');
+    }
+    else if(id == 'Parallelogram'){
+        convertMeter('area-field');
+    }
+    else if(id == 'Rhombus'){
+        convertMeter('area-field');
+    }
+    else if(id == 'Ellipse'){
+        convertMeter('area-field');
+    }
+    else if(id == 'Rectangle'){
+        convertMeter('area-field');
+    }
+
+})
