@@ -97,8 +97,14 @@ cards.forEach((card) => {
             
         }
         else if(targetElement.contains('rhombus-btn')){
-            const area = getAreaFromInput('rhombus-side1', 'rhombus-side2', true);
-            setAreaToResultField('rhombus',area);
+            const checkField = document.getElementById('check-rhombus');
+            if(checkField.checked){
+                const area = getAreaFromInput('rhombus-side1', 'rhombus-side2', true);
+                setAreaToResultField('rhombus',area);
+            }else{
+                const area = getAreaFromElement('rhombus-side1-element', 'rhombus-side2-element', true);
+                setAreaToResultField('rhombus',area);
+            }
         }
         else if(targetElement.contains('pentagon-btn')){
             const area = getAreaFromInput('pentagon-side1', 'pentagon-side2', true);
